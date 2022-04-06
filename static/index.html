@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title>log</title>
+
+	<link rel="icon" type="image/svg" href="/icon.svg" />
+	<link rel="manifest" href="/log.webmanifest" />
+	<link rel="apple-touch-icon" href="/icon.png" />
+
+	<style>
+		@keyframes spin {
+			from {
+				transform: rotate(0);
+			}
+
+			to {
+				transform: rotate(360deg);
+			}
+		}
+
+		* {
+			margin: 0;
+		}
+
+		:root {
+			font-size: 250%;
+		}
+
+		body {
+			margin: 0;
+			width: 100vw;
+			height: 100vh;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			background-color: #caffbf;
+		}
+
+		form {
+			display: flex;
+			flex-direction: row;
+			gap: 2%;
+		}
+
+		form>* {
+			height: 100%;
+			box-sizing: border-box;
+			appearance: none;
+			border: 4px solid #72dda8;
+			color: #72dda8;
+			border-radius: 8px;
+			background-color: #caffbf;
+		}
+
+		form>*:focus-visible {
+			outline: 4px solid #72dda8;
+		}
+
+		input {
+			font-size: 1rem;
+		}
+
+		button {
+			width: 80px;
+			height: 80px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		button:active img,
+		form.active img {
+			animation: spin infinite linear 1000ms;
+		}
+	</style>
+</head>
+
+<body>
+	<form action="/api/log" method="post" onsubmit="this.classList.add('active')">
+		<input id="message" type="text" name="message" required autocomplete="off" autocapitalize="off" autofocus />
+		<button type="submit"><img src="/icon.svg" alt="log" width="64px" height="64px" /></button>
+	</form>
+</body>
+
+</html>
